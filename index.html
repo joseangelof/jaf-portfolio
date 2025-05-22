@@ -1,0 +1,426 @@
+<html lang="en" class="transition-colors duration-300">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jose Angelo Fernandez | Portfolio</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+
+  function openImagePopup(imageUrl) {
+    const popup = window.open('', '_blank', 'width=1000,height=700');
+    popup.document.write(`
+      <html>
+        <head>
+          <title>Certificate Preview</title>
+          <style>
+            body { margin: 0; background: #111; display: flex; justify-content: center; align-items: center; height: 100vh; }
+            img { max-width: 100%; max-height: 100%; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+          </style>
+        </head>
+        <body>
+          <img src="${imageUrl}" alt="Certificate">
+        </body>
+      </html>
+    `);
+  }
+
+  </script>
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/feather-icons"></script>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    .light-effect {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background: radial-gradient(
+        600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+        rgba(59, 130, 246, 0.08) 0%,
+        rgba(59, 130, 246, 0.04) 25%,
+        rgba(59, 130, 246, 0.02) 50%,
+        transparent 80%
+      );
+    }
+    
+    body:hover .light-effect {
+      opacity: 1;
+    }
+    
+    .content-wrapper {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .nav-link:hover {
+      text-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+    }
+    
+    .social-link:hover {
+      text-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+      transform: translateY(-1px);
+    }
+    
+    .experience-card:hover {
+      background: rgba(59, 130, 246, 0.02);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .project-card {
+      transition: all 0.3s ease;
+    }
+    
+    .project-card:hover {
+      background: rgba(59, 130, 246, 0.02);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Mobile navigation */
+    @media (max-width: 768px) {
+      .mobile-nav {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+      }
+      
+      .mobile-nav.active {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-[#0f172a] text-[#cbd5e1] min-h-screen transition-colors duration-300">
+  <div class="light-effect"></div>
+  
+  <!-- Header -->
+  <header class="content-wrapper bg-[#0f172a]/90 backdrop-blur-sm border-b border-[#1e293b] sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-[#e2e8f0]">JOSE ANGELO FERNANDEZ</h1>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6 items-center">
+        <a href="#about" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">About</a>
+        <a href="#experience" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Experience</a>
+        <a href="#projects" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Projects</a>
+        <a href="#contact" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Contact</a>
+        <a href="Jose-Angelo-Fernandez-Resume.pdf" download class="bg-[#3b82f6] text-white px-4 py-2 rounded-lg hover:bg-[#2563eb] transition-all duration-300">Resume</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-[#cbd5e1]">
+        <i data-feather="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div id="mobileNav" class="mobile-nav md:hidden bg-[#1e293b] border-t border-[#334155]">
+      <nav class="container mx-auto px-6 py-4 space-y-4">
+        <a href="#about" class="block nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">About</a>
+        <a href="#experience" class="block nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Experience</a>
+        <a href="#projects" class="block nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Projects</a>
+        <a href="#contact" class="block nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Contact</a>
+        <a href="Jose-Angelo-Fernandez-Resume.pdf" download class="inline-block bg-[#3b82f6] text-white px-4 py-2 rounded-lg hover:bg-[#2563eb] transition-all duration-300">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="content-wrapper bg-transparent text-center py-20 px-6" data-aos="fade-up">
+    <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12 max-w-6xl mx-auto">
+      <img src="assets/your-photo.jpg" alt="Jose Angelo Fernandez"
+        class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-[#3b82f6] shadow-2xl transform transition-transform duration-500 hover:scale-110 hover:rotate-3" />
+      <div class="text-left">
+        <h2 class="text-4xl md:text-5xl font-bold text-[#e2e8f0] mb-4">Hi, I'm Jose Angelo Fernandez</h2>
+        <h3 class="text-xl md:text-2xl text-[#3b82f6] mb-2 font-semibold">Technical Support Associate | Full Stack Web Developer</h3>
+        <p class="text-[#94a3b8] mb-4 max-w-2xl">
+          I build accessible, pixel-perfect digital experiences for the web.
+        </p>
+        <div class="text-[#94a3b8] mb-6 space-y-1">
+          <p>joseangelof123@gmail.com</p>
+          <p>0916-862-1591</p>
+          <p>San Miguel, Central Luzon</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="https://www.linkedin.com/in/jose-angelo-fernandez/" target="_blank" class="social-link text-[#64748b] hover:text-[#3b82f6] transition-all duration-300">
+            <i class="fab fa-linkedin fa-2x"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="content-wrapper py-20 px-6" data-aos="fade-right">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold text-[#e2e8f0] mb-12 text-center">About Me</h3>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6 text-[#94a3b8] leading-relaxed">
+          <p>
+            I'm a developer passionate about crafting accessible, pixel-perfect user interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development, creating experiences that not only look great but are meticulously built for performance and usability.
+          </p>
+          <p>
+            As a recent Computer Science graduate with experience in HTML, CSS, JavaScript, and PHP, I love building interactive web applications and learning new technologies. I'm constantly exploring new frameworks and best practices to improve my craft.
+          </p>
+          <p>
+            In my spare time, I play video games and watch youtube videos and movies.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-[#1e293b] p-6 rounded-lg border border-[#334155]">
+            <h4 class="text-[#3b82f6] font-semibold mb-2">Frontend</h4>
+            <p class="text-[#94a3b8] text-sm">HTML, CSS, JavaScript, TailwindCSS</p>
+          </div>
+          <div class="bg-[#1e293b] p-6 rounded-lg border border-[#334155]">
+            <h4 class="text-[#3b82f6] font-semibold mb-2">Backend</h4>
+            <p class="text-[#94a3b8] text-sm">PHP, MySQL</p>
+          </div>
+          <div class="bg-[#1e293b] p-6 rounded-lg border border-[#334155]">
+            <h4 class="text-[#3b82f6] font-semibold mb-2">Tools</h4>
+            <p class="text-[#94a3b8] text-sm">Figma, Canva, GPT-4o, Claude 3.7 Sonnet</p>
+          </div>
+          <div class="bg-[#1e293b] p-6 rounded-lg border border-[#334155]">
+            <h4 class="text-[#3b82f6] font-semibold mb-2">Focus</h4>
+            <p class="text-[#94a3b8] text-sm">Accessibility, Performance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="content-wrapper py-20 px-6 bg-[#1e293b]/20" data-aos="fade-left">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold text-[#e2e8f0] mb-12 text-center">Experience</h3>
+      
+      <div class="experience-card p-8 mb-8 border border-[#334155] rounded-lg">
+        <div class="flex flex-col md:flex-row md:items-start md:space-x-8">
+          <div class="text-sm text-[#64748b] flex-shrink-0 md:w-40 mb-4 md:mb-0 font-mono">
+            June 2024 — August 2024
+          </div>
+          <div class="flex-1">
+            <h4 class="font-semibold text-[#f1f5f9] text-lg mb-2">
+              Microsoft Education Technical Associate (Internship) · Rakso CT
+              <a href="https://raksoct.com/" target="_blank" rel="noopener noreferrer" aria-label="Company website" class="inline-block ml-2 text-[#94a3b8] hover:text-[#3b82f6] transition-colors duration-300">
+                <i class="fas fa-external-link-alt text-sm"></i>
+              </a>
+            </h4>
+            <ul class="list-disc list-inside text-[#94a3b8] space-y-2 mb-4">
+              <li>Deployed and managed 500+ Microsoft 365 accounts across 10 educational institutions.</li>
+              <li>Improved data accuracy by 30% through validation and cleanup of 1,500 user records.</li>
+              <li>Assisted in a cloud licensing project using Azure and Dynamics 365, boosting operational efficiency.</li>
+              <li>Integrated Single Sign-On (SSO) for over 500 school accounts with Canva.</li>
+              <li>Installed Microsoft Office applications and managed user onboarding for 100+ staff and students.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Microsoft 365</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Azure</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Dynamics 365</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">SSO</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">IT Support</span>
+            </div>
+            <!-- Certificate Display -->
+            <div class="mt-6 flex flex-col md:flex-row md:items-center md:space-x-8">
+              <div>
+                <h5 class="text-[#3b82f6] font-semibold mb-2 flex items-center">
+                  <i class="fas fa-certificate mr-2"></i> Certificate
+                </h5>
+                <img 
+                  src="assets/rakso-cert.jpg" 
+                  alt="Internship Certificate" 
+                  class="w-full max-w-xs md:max-w-md border border-[#334155] rounded-lg shadow hover:shadow-lg transition duration-300 mb-2 md:mb-0 cursor-pointer" 
+                  style="aspect-ratio: 16/9; object-fit: cover;" 
+                  onclick="openImagePopup('assets/rakso-cert.jpg')" 
+                />
+              </div>
+            </div>
+            <!-- End Certificate Display -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="content-wrapper py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold text-[#e2e8f0] mb-12 text-center" data-aos="zoom-in">My Projects</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Paulumni Project -->
+        <div class="project-card bg-[#1e293b] p-6 rounded-lg border border-[#334155] group" data-aos="flip-left">
+          <h4 class="text-xl font-bold text-[#e2e8f0] mb-4">Paulumni: Alumni Tracking System</h4>
+          <div class="w-full rounded-lg mb-4 overflow-hidden border border-[#334155]">
+            <img src="/api/placeholder/400/250" alt="Paulumni Static"
+              class="group-hover:hidden block w-full h-48 object-cover transition duration-300 ease-in-out" />
+            <img src="/api/placeholder/400/250" alt="Paulumni Demo"
+              class="hidden group-hover:block w-full h-48 object-cover transition duration-300 ease-in-out" />
+          </div>
+          <p class="text-[#94a3b8] mb-4 leading-relaxed">
+            A web-based alumni tracking system built using PHP, MySQL, and TailwindCSS for efficient alumni management and communication.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">PHP</span>
+            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">MySQL</span>
+            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">TailwindCSS</span>
+          </div>
+        </div>
+
+        <!-- Ctrl+Play Project -->
+        <div class="project-card bg-[#1e293b] p-6 rounded-lg border border-[#334155] group" data-aos="flip-left" data-aos-delay="100">
+          <h4 class="text-xl font-bold text-[#e2e8f0] mb-4">Ctrl+Play</h4>
+          <div class="w-full rounded-lg mb-4 overflow-hidden border border-[#334155]">
+            <img src="assets/controlplay-static.png" alt="Ctrl+Play Static"
+              class="group-hover:hidden block w-full h-48 object-cover transition duration-300 ease-in-out" />
+            <img src="assets/controlplay-demo.gif" alt="Ctrl+Play Demo"
+              class="hidden group-hover:block w-full h-48 object-cover transition duration-300 ease-in-out" />
+          </div>
+          <p class="text-[#94a3b8] mb-4 leading-relaxed">
+            A web-based digital game distribution platform designed in Figma. Features a clean, responsive interface for browsing, purchasing, and downloading video games.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Figma</span>
+            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">UI/UX</span>
+            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Responsive Design</span>
+          </div>
+        </div>
+
+        <!-- Spotify API Course Project -->
+        <div class="project-card bg-[#1e293b] p-6 rounded-lg border border-[#334155]" data-aos="flip-left" data-aos-delay="200">
+          <h4 class="text-xl font-bold text-[#e2e8f0] mb-4">Spotify API Web App Course</h4>
+          <div class="w-full rounded-lg mb-4 overflow-hidden border border-[#334155]">
+            <img src="/api/placeholder/400/250" alt="Spotify API Course"
+              class="w-full h-48 object-cover" />
+          </div>
+          <p class="text-[#94a3b8] mb-4 leading-relaxed">
+            Comprehensive video course teaching developers how to build a web application using the Spotify API, covering authentication, data fetching, and UI implementation.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">JavaScript</span>
+            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Spotify API</span>
+            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Education</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="content-wrapper py-20 px-6 bg-[#1e293b]/20" data-aos="fade-up">
+    <div class="max-w-xl mx-auto">
+      <h3 class="text-3xl font-bold text-[#e2e8f0] mb-12 text-center">Get In Touch</h3>
+      <div class="bg-[#1e293b] p-8 rounded-lg border border-[#334155]">
+        <p class="text-[#94a3b8] mb-8 text-center leading-relaxed">
+          I'm always interested in new opportunities and interesting projects. Whether you have a question or just want to say hello, feel free to reach out!
+        </p>
+        <form action="mailto:joseangelof123@gmail.com" method="POST" class="space-y-6">
+          <div>
+            <label class="block text-[#cbd5e1] text-sm font-semibold mb-2" for="name">Name</label>
+            <input type="text" id="name" name="name" required 
+              class="w-full bg-[#0f172a] border border-[#334155] text-[#cbd5e1] px-4 py-3 rounded-lg focus:border-[#3b82f6] focus:outline-none transition-colors duration-300" />
+          </div>
+          <div>
+            <label class="block text-[#cbd5e1] text-sm font-semibold mb-2" for="email">Email</label>
+            <input type="email" id="email" name="email" required 
+              class="w-full bg-[#0f172a] border border-[#334155] text-[#cbd5e1] px-4 py-3 rounded-lg focus:border-[#3b82f6] focus:outline-none transition-colors duration-300" />
+          </div>
+          <div>
+            <label class="block text-[#cbd5e1] text-sm font-semibold mb-2" for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required 
+              class="w-full bg-[#0f172a] border border-[#334155] text-[#cbd5e1] px-4 py-3 rounded-lg focus:border-[#3b82f6] focus:outline-none transition-colors duration-300 resize-none"></textarea>
+          </div>
+          <button type="submit" 
+            class="w-full bg-[#3b82f6] text-white px-6 py-3 rounded-lg hover:bg-[#2563eb] transition-all duration-300 font-semibold">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="content-wrapper bg-[#0f172a] border-t border-[#1e293b] text-center py-8">
+    <p class="text-[#64748b]">&copy; 2025 Jose Angelo Fernandez. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+    
+    // Initialize Feather Icons
+    feather.replace();
+
+    // Track mouse movement for light effect
+    document.addEventListener('mousemove', (e) => {
+      const lightEffect = document.querySelector('.light-effect');
+      lightEffect.style.setProperty('--mouse-x', e.clientX + 'px');
+      lightEffect.style.setProperty('--mouse-y', e.clientY + 'px');
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on links
+    const mobileNavLinks = mobileNav.querySelectorAll('a');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+      });
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
