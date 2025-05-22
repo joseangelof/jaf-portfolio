@@ -128,29 +128,31 @@
   
   <!-- Header -->
   <header class="content-wrapper bg-[#0f172a]/90 backdrop-blur-sm border-b border-[#1e293b] sticky top-0 z-50">
-    <div class="container mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
-      <h1 class="text-lg md:text-xl font-bold text-[#e2e8f0] truncate max-w-[200px] md:max-w-none">JOSE ANGELO FERNANDEZ</h1>
+    <!-- Mobile Header -->
+    <div class="flex md:hidden justify-between items-center px-4 py-3">
+      <button id="mobileMenuBtn" class="text-[#cbd5e1] p-2 rounded-lg hover:bg-[#1e293b] transition-all duration-300">
+        <i data-feather="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Desktop Header -->
+    <div class="hidden md:flex container mx-auto px-6 py-4 justify-between items-center">
+      <h1 class="text-xl font-bold text-[#e2e8f0]">JOSE ANGELO FERNANDEZ</h1>
       
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-6 items-center">
+      <nav class="flex space-x-6 items-center">
         <a href="#about" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">About</a>
         <a href="#experience" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Experience</a>
         <a href="#projects" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Projects</a>
         <a href="#contact" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Contact</a>
         <a href="Jose-Angelo-Fernandez-Resume.pdf" download class="bg-[#3b82f6] text-white px-4 py-2 rounded-lg hover:bg-[#2563eb] transition-all duration-300">Resume</a>
       </nav>
-      
-      <!-- Mobile Menu Button -->
-      <button id="mobileMenuBtn" class="md:hidden text-[#cbd5e1] p-2 rounded-lg hover:bg-[#1e293b] transition-all duration-300">
-        <i data-feather="menu" class="w-5 h-5"></i>
-      </button>
     </div>
     
-    <!-- Mobile Navigation -->
+    <!-- Mobile Navigation Menu -->
     <div id="mobileNav" class="mobile-nav fixed inset-0 bg-[#0f172a]/95 backdrop-blur-sm md:hidden -translate-y-full transition-transform duration-300 ease-in-out">
       <div class="h-full flex flex-col">
         <div class="flex justify-between items-center px-4 py-3 border-b border-[#334155]">
-          <h2 class="text-lg font-bold text-[#e2e8f0]">Menu</h2>
+          <h1 class="text-lg font-bold text-[#e2e8f0]">JOSE ANGELO FERNANDEZ</h1>
           <button id="mobileMenuCloseBtn" class="text-[#cbd5e1] p-2 rounded-lg hover:bg-[#1e293b] transition-all duration-300">
             <i data-feather="x" class="w-5 h-5"></i>
           </button>
