@@ -1,3 +1,4 @@
+
 <html lang="en" class="transition-colors duration-300">
 <head>
   <meta charset="UTF-8" />
@@ -59,16 +60,28 @@
       opacity: 0;
       transition: opacity 0.3s ease;
       background: radial-gradient(
-        600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-        rgba(59, 130, 246, 0.08) 0%,
-        rgba(59, 130, 246, 0.04) 25%,
-        rgba(59, 130, 246, 0.02) 50%,
+        400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+        rgba(59, 130, 246, 0.06) 0%,
+        rgba(59, 130, 246, 0.03) 25%,
+        rgba(59, 130, 246, 0.01) 50%,
         transparent 80%
       );
     }
     
-    body:hover .light-effect {
-      opacity: 1;
+    @media (min-width: 768px) {
+      .light-effect {
+        background: radial-gradient(
+          600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+          rgba(59, 130, 246, 0.08) 0%,
+          rgba(59, 130, 246, 0.04) 25%,
+          rgba(59, 130, 246, 0.02) 50%,
+          transparent 80%
+        );
+      }
+      
+      body:hover .light-effect {
+        opacity: 1;
+      }
     }
     
     .content-wrapper {
@@ -106,7 +119,7 @@
       scroll-behavior: smooth;
     }
     
-    /* Mobile navigation */
+    /* Mobile optimizations */
     @media (max-width: 768px) {
       .mobile-nav {
         transform: translateY(-100%);
@@ -120,6 +133,67 @@
       body.menu-open {
         overflow: hidden;
       }
+      
+      /* Disable hover effects on mobile */
+      .project-card:hover {
+        transform: none;
+        background: transparent;
+        box-shadow: none;
+      }
+      
+      .experience-card:hover {
+        background: transparent;
+      }
+      
+      /* Optimize text sizes for mobile */
+      .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.125rem;
+        line-height: 1.4;
+      }
+      
+      /* Better spacing for mobile */
+      .mobile-spacing {
+        padding: 1rem;
+      }
+      
+      /* Signature positioning for mobile */
+      .signature-mobile {
+        display: none;
+      }
+      
+      /* Better image sizing */
+      .mobile-cert-img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      /* Touch-friendly buttons */
+      .touch-button {
+        min-height: 44px;
+        min-width: 44px;
+      }
+    }
+    
+    /* Prevent horizontal scroll */
+    * {
+      box-sizing: border-box;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Better form styling for mobile */
+    @media (max-width: 768px) {
+      input, textarea, button {
+        font-size: 16px; /* Prevents zoom on iOS */
+      }
     }
   </style>
 </head>
@@ -130,8 +204,9 @@
   <header class="content-wrapper bg-[#0f172a]/90 backdrop-blur-sm border-b border-[#1e293b] sticky top-0 z-50">
     <!-- Mobile Header -->
     <div class="flex md:hidden justify-between items-center px-4 py-3">
-      <button id="mobileMenuBtn" class="text-[#cbd5e1] p-2 rounded-lg hover:bg-[#1e293b] transition-all duration-300">
-        <i data-feather="menu" class="w-5 h-5"></i>
+      <h1 class="text-lg font-bold text-[#e2e8f0] truncate">JOSE ANGELO FERNANDEZ</h1>
+      <button id="mobileMenuBtn" class="text-[#cbd5e1] p-2 rounded-lg hover:bg-[#1e293b] transition-all duration-300 touch-button">
+        <i data-feather="menu" class="w-6 h-6"></i>
       </button>
     </div>
 
@@ -149,55 +224,55 @@
     </div>
     
     <!-- Mobile Navigation Menu -->
-    <div id="mobileNav" class="mobile-nav fixed inset-0 bg-[#0f172a]/95 backdrop-blur-sm md:hidden -translate-y-full transition-transform duration-300 ease-in-out">
+    <div id="mobileNav" class="mobile-nav fixed inset-0 bg-[#0f172a]/95 backdrop-blur-sm md:hidden -translate-y-full transition-transform duration-300 ease-in-out z-50">
       <div class="h-full flex flex-col">
         <div class="flex justify-between items-center px-4 py-3 border-b border-[#334155]">
           <h1 class="text-lg font-bold text-[#e2e8f0]">JOSE ANGELO FERNANDEZ</h1>
-          <button id="mobileMenuCloseBtn" class="text-[#cbd5e1] p-2 rounded-lg hover:bg-[#1e293b] transition-all duration-300">
-            <i data-feather="x" class="w-5 h-5"></i>
+          <button id="mobileMenuCloseBtn" class="text-[#cbd5e1] p-2 rounded-lg hover:bg-[#1e293b] transition-all duration-300 touch-button">
+            <i data-feather="x" class="w-6 h-6"></i>
           </button>
         </div>
-        <nav class="flex-1 px-4 py-6 space-y-6 overflow-y-auto">
-          <a href="#about" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">About</a>
-          <a href="#experience" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Experience</a>
-          <a href="#projects" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Projects</a>
-          <a href="#contact" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Contact</a>
-          <a href="Jose-Angelo-Fernandez-Resume.pdf" download class="inline-block w-full bg-[#3b82f6] text-white px-4 py-3 rounded-lg hover:bg-[#2563eb] transition-all duration-300 text-center">Resume</a>
+        <nav class="flex-1 px-4 py-6 space-y-4 overflow-y-auto">
+          <a href="#about" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300 py-3 px-2 rounded-lg hover:bg-[#1e293b] touch-button">About</a>
+          <a href="#experience" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300 py-3 px-2 rounded-lg hover:bg-[#1e293b] touch-button">Experience</a>
+          <a href="#projects" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300 py-3 px-2 rounded-lg hover:bg-[#1e293b] touch-button">Projects</a>
+          <a href="#contact" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300 py-3 px-2 rounded-lg hover:bg-[#1e293b] touch-button">Contact</a>
+          <a href="Jose-Angelo-Fernandez-Resume.pdf" download class="inline-block w-full bg-[#3b82f6] text-white px-4 py-3 rounded-lg hover:bg-[#2563eb] transition-all duration-300 text-center mt-4 touch-button">Resume</a>
         </nav>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-      <section class="content-wrapper bg-transparent text-center py-20 px-6" data-aos="fade-up">
-        <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12 max-w-6xl mx-auto">
-          <img src="assets/my-photo.jpg" alt="Jose Angelo Fernandez"
-            class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-[#3b82f6] shadow-2xl transform transition-transform duration-500 hover:scale-110 hover:rotate-3" />
-          <div class="text-left">
-<div class="inline-block mb-4">
-  <div class="relative inline-block">
-    <!-- Signature Image -->
-    <img src="assets/sig.png" alt="Signature"
-         class="absolute top-0 right-0 w-40 transform rotate-12 translate-x-16 -translate-y-24 opacity-80 z-10" />
-    
-    <!-- Name -->
-    <h2 class="text-4xl md:text-5xl font-bold text-[#e2e8f0] relative z-0">
-      Jose Angelo Fernandez
-    </h2>
-  </div>
-</div>
+  <section class="content-wrapper bg-transparent text-center py-12 px-4 sm:py-20 sm:px-6" data-aos="fade-up">
+    <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 max-w-6xl mx-auto">
+      <img src="assets/my-photo.jpg" alt="Jose Angelo Fernandez"
+        class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-[#3b82f6] shadow-2xl transform transition-transform duration-500 hover:scale-110 hover:rotate-3" />
+      <div class="md:text-left text-center">
+        <div class="inline-block mb-4">
+          <div class="relative inline-block">
+            <!-- Signature Image - Hidden on mobile -->
+            <img src="assets/sig.png" alt="Signature"
+                 class="signature-mobile absolute top-0 right-0 w-32 sm:w-40 transform rotate-12 translate-x-12 sm:translate-x-16 -translate-y-16 sm:-translate-y-24 opacity-80 z-10 hidden md:block" />
+            
+            <!-- Name -->
+            <h2 class="hero-title text-3xl sm:text-4xl md:text-5xl font-bold text-[#e2e8f0] relative z-0 mb-2">
+              Jose Angelo Fernandez
+            </h2>
+          </div>
+        </div>
 
-        <h3 class="text-xl md:text-2xl text-[#3b82f6] mb-2 font-semibold">Full Stack Web Developer | Technical Support</h3>
-        <p class="text-[#94a3b8] mb-4 max-w-2xl">
+        <h3 class="hero-subtitle text-lg sm:text-xl md:text-2xl text-[#3b82f6] mb-3 font-semibold">Full Stack Web Developer | Technical Support</h3>
+        <p class="text-[#94a3b8] mb-4 max-w-2xl text-sm sm:text-base leading-relaxed">
           Entry-level knowledge in web development and technical support, with a strong willingness to explore new roles and learn.
         </p>
-        <div class="text-[#94a3b8] mb-6 space-y-1">
-          <p>joseangelof123@gmail.com</p>
+        <div class="text-[#94a3b8] mb-6 space-y-1 text-sm sm:text-base">
+          <p class="break-all">joseangelof123@gmail.com</p>
           <p>0916-862-1591</p>
           <p>San Miguel, Bulacan, Central Luzon</p>
         </div>
-        <div class="flex space-x-4">
-          <a href="https://www.linkedin.com/in/jose-angelo-fernandez/" target="_blank" class="social-link text-[#64748b] hover:text-[#3b82f6] transition-all duration-300">
+        <div class="flex justify-center md:justify-start space-x-4">
+          <a href="https://www.linkedin.com/in/jose-angelo-fernandez/" target="_blank" class="social-link text-[#64748b] hover:text-[#3b82f6] transition-all duration-300 p-2 touch-button">
             <i class="fab fa-linkedin fa-2x"></i>
           </a>
         </div>
@@ -206,11 +281,11 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="content-wrapper py-20 px-6" data-aos="fade-right">
+  <section id="about" class="content-wrapper py-12 px-4 sm:py-20 sm:px-6" data-aos="fade-right">
     <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl font-bold text-[#e2e8f0] mb-12 text-center">About Me</h3>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6 text-[#94a3b8] leading-relaxed">
+      <h3 class="text-2xl sm:text-3xl font-bold text-[#e2e8f0] mb-8 sm:mb-12 text-center">About Me</h3>
+      <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
+        <div class="space-y-4 sm:space-y-6 text-[#94a3b8] leading-relaxed text-sm sm:text-base">
           <p>
             I'm a developer passionate about crafting accessible interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development, creating experiences that not only look great but are meticulously built for performance and usability.
           </p>
@@ -221,22 +296,22 @@
             In my spare time, I play video games and watch youtube videos and movies.
           </p>
         </div>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-[#1e293b] p-6 rounded-lg border border-[#334155]">
-            <h4 class="text-[#3b82f6] font-semibold mb-2">Frontend</h4>
-            <p class="text-[#94a3b8] text-sm">HTML, CSS, JavaScript, TailwindCSS</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-[#1e293b] p-4 sm:p-6 rounded-lg border border-[#334155]">
+            <h4 class="text-[#3b82f6] font-semibold mb-2 text-sm sm:text-base">Frontend</h4>
+            <p class="text-[#94a3b8] text-xs sm:text-sm">HTML, CSS, JavaScript, TailwindCSS</p>
           </div>
-          <div class="bg-[#1e293b] p-6 rounded-lg border border-[#334155]">
-            <h4 class="text-[#3b82f6] font-semibold mb-2">Backend</h4>
-            <p class="text-[#94a3b8] text-sm">PHP, MySQL</p>
+          <div class="bg-[#1e293b] p-4 sm:p-6 rounded-lg border border-[#334155]">
+            <h4 class="text-[#3b82f6] font-semibold mb-2 text-sm sm:text-base">Backend</h4>
+            <p class="text-[#94a3b8] text-xs sm:text-sm">PHP, MySQL</p>
           </div>
-          <div class="bg-[#1e293b] p-6 rounded-lg border border-[#334155]">
-            <h4 class="text-[#3b82f6] font-semibold mb-2">Tools</h4>
-            <p class="text-[#94a3b8] text-sm">Figma, Canva, GPT-4o, Claude 3.7 Sonnet</p>
+          <div class="bg-[#1e293b] p-4 sm:p-6 rounded-lg border border-[#334155]">
+            <h4 class="text-[#3b82f6] font-semibold mb-2 text-sm sm:text-base">Tools</h4>
+            <p class="text-[#94a3b8] text-xs sm:text-sm">Figma, Canva, GPT-4o, Claude 3.7 Sonnet</p>
           </div>
-          <div class="bg-[#1e293b] p-6 rounded-lg border border-[#334155]">
-            <h4 class="text-[#3b82f6] font-semibold mb-2">Focus</h4>
-            <p class="text-[#94a3b8] text-sm">Accessibility, Performance</p>
+          <div class="bg-[#1e293b] p-4 sm:p-6 rounded-lg border border-[#334155]">
+            <h4 class="text-[#3b82f6] font-semibold mb-2 text-sm sm:text-base">Focus</h4>
+            <p class="text-[#94a3b8] text-xs sm:text-sm">Accessibility, Performance</p>
           </div>
         </div>
       </div>
@@ -244,23 +319,23 @@
   </section>
 
   <!-- Experience Section -->
-  <section id="experience" class="content-wrapper py-20 px-6 bg-[#1e293b]/20" data-aos="fade-left">
+  <section id="experience" class="content-wrapper py-12 px-4 sm:py-20 sm:px-6 bg-[#1e293b]/20" data-aos="fade-left">
     <div class="max-w-4xl mx-auto">
-      <h3 class="text-3xl font-bold text-[#e2e8f0] mb-12 text-center">Experience</h3>
+      <h3 class="text-2xl sm:text-3xl font-bold text-[#e2e8f0] mb-8 sm:mb-12 text-center">Experience</h3>
       
-      <div class="experience-card p-8 mb-8 border border-[#334155] rounded-lg">
-        <div class="flex flex-col md:flex-row md:items-start md:space-x-8">
-          <div class="text-sm text-[#64748b] flex-shrink-0 md:w-40 mb-4 md:mb-0 font-mono">
+      <div class="experience-card p-4 sm:p-8 mb-8 border border-[#334155] rounded-lg">
+        <div class="flex flex-col space-y-4">
+          <div class="text-xs sm:text-sm text-[#64748b] font-mono">
             June 2024 — August 2024
           </div>
           <div class="flex-1">
-            <h4 class="font-semibold text-[#f1f5f9] text-lg mb-2">
+            <h4 class="font-semibold text-[#f1f5f9] text-base sm:text-lg mb-2">
               Microsoft Education Technical Associate (Internship) · Rakso CT
-              <a href="https://raksoct.com/" target="_blank" rel="noopener noreferrer" aria-label="Company website" class="inline-block ml-2 text-[#94a3b8] hover:text-[#3b82f6] transition-colors duration-300">
+              <a href="https://raksoct.com/" target="_blank" rel="noopener noreferrer" aria-label="Company website" class="inline-block ml-2 text-[#94a3b8] hover:text-[#3b82f6] transition-colors duration-300 touch-button">
                 <i class="fas fa-external-link-alt text-sm"></i>
               </a>
             </h4>
-            <ul class="list-disc list-inside text-[#94a3b8] space-y-2 mb-4">
+            <ul class="list-disc list-inside text-[#94a3b8] space-y-2 mb-4 text-sm sm:text-base">
               <li>Deployed and managed 500+ Microsoft 365 accounts across 10 educational institutions.</li>
               <li>Improved data accuracy by 30% through validation and cleanup of 1,500 user records.</li>
               <li>Assisted in a cloud licensing project using Azure and Dynamics 365, boosting operational efficiency.</li>
@@ -268,28 +343,24 @@
               <li>Installed Microsoft Office applications and managed user onboarding for 100+ staff and students.</li>
             </ul>
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Microsoft 365</span>
-              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Azure</span>
-              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Dynamics 365</span>
-              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">SSO</span>
-              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">IT Support</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">Microsoft 365</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">Azure</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">Dynamics 365</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">SSO</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">IT Support</span>
             </div>
             <!-- Certificate Display -->
-            <div class="mt-6 flex flex-col md:flex-row md:items-center md:space-x-8">
-              <div>
-                <h5 class="text-[#3b82f6] font-semibold mb-2 flex items-center">
-                  <i class="fas fa-certificate mr-2"></i> Certificate
-                </h5>
-                <img 
-                  src="assets/rakso-cert.jpg" 
-                  alt="Internship Certificate" 
-                  class="w-full max-w-xs md:max-w-md border border-[#334155] rounded-lg shadow hover:shadow-lg transition duration-300 mb-2 md:mb-0 cursor-pointer" 
-                  style="aspect-ratio: 16/9; object-fit: cover;" 
-                  onclick="openImagePopup('assets/rakso-cert.jpg')" 
-                />
-              </div>
+            <div class="mt-6">
+              <h5 class="text-[#3b82f6] font-semibold mb-3 flex items-center text-sm sm:text-base">
+                <i class="fas fa-certificate mr-2"></i> Certificate
+              </h5>
+              <img 
+                src="assets/rakso-cert.jpg" 
+                alt="Internship Certificate" 
+                class="mobile-cert-img w-full max-w-sm border border-[#334155] rounded-lg shadow hover:shadow-lg transition duration-300 cursor-pointer" 
+                onclick="openImagePopup('assets/rakso-cert.jpg')" 
+              />
             </div>
-            <!-- End Certificate Display -->
           </div>
         </div>
       </div>
@@ -297,69 +368,71 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="content-wrapper py-20 px-6">
+  <section id="projects" class="content-wrapper py-12 px-4 sm:py-20 sm:px-6">
     <div class="max-w-6xl mx-auto">
-      <h3 class="text-3xl font-bold text-[#e2e8f0] mb-12 text-center" data-aos="zoom-in">My Projects</h3>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <h3 class="text-2xl sm:text-3xl font-bold text-[#e2e8f0] mb-8 sm:mb-12 text-center" data-aos="zoom-in">My Projects</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
-  <!-- Paulumni Project -->
-  <a href="http://localhost/paulumni/index.html" target="_blank">
-    <div class="project-card bg-[#1e293b] p-6 rounded-lg border border-[#334155] group" data-aos="flip-left">
-      <h4 class="text-xl font-bold text-[#e2e8f0] mb-4">Paulumni</h4>
-      <div class="w-full rounded-lg mb-4 overflow-hidden border border-[#334155]">
-        <img src="assets/paulumni-static.png" alt="Paulumni Static"
-          class="group-hover:hidden block w-full h-48 object-cover transition duration-300 ease-in-out" />
-        <img src="assets/paulumni-static.png" alt="Paulumni Demo"
-          class="hidden group-hover:block w-full h-48 object-cover transition duration-300 ease-in-out" />
-      </div>
-      <p class="text-[#94a3b8] mb-4 leading-relaxed">
-        A web-based alumni tracking system built using PHP, MySQL, and TailwindCSS for efficient alumni management and communication.
-      </p>
-      <div class="flex flex-wrap gap-2">
-        <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">PHP</span>
-        <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">MySQL</span>
-        <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">TailwindCSS</span>
-      </div>
-    </div>
-  </a>
+        <!-- Paulumni Project -->
+        <a href="http://localhost/paulumni/index.html" target="_blank" class="block">
+          <div class="project-card bg-[#1e293b] p-4 sm:p-6 rounded-lg border border-[#334155] group h-full" data-aos="flip-left">
+            <h4 class="text-lg sm:text-xl font-bold text-[#e2e8f0] mb-4">Paulumni</h4>
+            <div class="w-full rounded-lg mb-4 overflow-hidden border border-[#334155]">
+              <img src="assets/paulumni-static.png" alt="Paulumni Static"
+                class="group-hover:hidden block w-full h-32 sm:h-48 object-cover transition duration-300 ease-in-out" />
+              <img src="assets/paulumni-static.png" alt="Paulumni Demo"
+                class="hidden group-hover:block w-full h-32 sm:h-48 object-cover transition duration-300 ease-in-out" />
+            </div>
+            <p class="text-[#94a3b8] mb-4 leading-relaxed text-sm sm:text-base">
+              A web-based alumni tracking system built using PHP, MySQL, and TailwindCSS for efficient alumni management and communication.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">PHP</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">MySQL</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">TailwindCSS</span>
+            </div>
+          </div>
+        </a>
         
         <!-- Ctrl+Play Project -->
-      <a href="https://www.figma.com/proto/fsUfJFwoYGsN5XzkwPKC3X/E-commerce-Final-Project?node-id=0-1&t=POSt7HUIfzvE7Xk2-1" target="_blank">
-        <div class="project-card bg-[#1e293b] p-6 rounded-lg border border-[#334155] group" data-aos="flip-left" data-aos-delay="100">
-          <h4 class="text-xl font-bold text-[#e2e8f0] mb-4">Ctrl+Play</h4>
-          <div class="w-full rounded-lg mb-4 overflow-hidden border border-[#334155]">
-            <img src="assets/controlplay-static.png" alt="Ctrl+Play Static"
-              class="group-hover:hidden block w-full h-48 object-cover transition duration-300 ease-in-out" />
-            <img src="assets/controlplay-demo.gif" alt="Ctrl+Play Demo"
-              class="hidden group-hover:block w-full h-48 object-cover transition duration-300 ease-in-out" />
+        <a href="https://www.figma.com/proto/fsUfJFwoYGsN5XzkwPKC3X/E-commerce-Final-Project?node-id=0-1&t=POSt7HUIfzvE7Xk2-1" target="_blank" class="block">
+          <div class="project-card bg-[#1e293b] p-4 sm:p-6 rounded-lg border border-[#334155] group h-full" data-aos="flip-left" data-aos-delay="100">
+            <h4 class="text-lg sm:text-xl font-bold text-[#e2e8f0] mb-4">Ctrl+Play</h4>
+            <div class="w-full rounded-lg mb-4 overflow-hidden border border-[#334155]">
+              <img src="assets/controlplay-static.png" alt="Ctrl+Play Static"
+                class="group-hover:hidden block w-full h-32 sm:h-48 object-cover transition duration-300 ease-in-out" />
+              <img src="assets/controlplay-demo.gif" alt="Ctrl+Play Demo"
+                class="hidden group-hover:block w-full h-32 sm:h-48 object-cover transition duration-300 ease-in-out" />
+            </div>
+            <p class="text-[#94a3b8] mb-4 leading-relaxed text-sm sm:text-base">
+              A web-based digital game distribution platform designed in Figma. Features a clean, responsive interface for browsing, purchasing, and downloading video games.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">Figma</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">UI/UX</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">Responsive Design</span>
+            </div>
           </div>
-          <p class="text-[#94a3b8] mb-4 leading-relaxed">
-            A web-based digital game distribution platform designed in Figma. Features a clean, responsive interface for browsing, purchasing, and downloading video games.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Figma</span>
-            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">UI/UX</span>
-            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">Responsive Design</span>
-          </div>
-        </div>
+        </a>
 
         <!-- E-readers Project -->
-      <a href="http://localhost/library-system/index.php" target="_blank">
-        <div class="project-card bg-[#1e293b] p-6 rounded-lg border border-[#334155]" data-aos="flip-left" data-aos-delay="200">
-          <h4 class="text-xl font-bold text-[#e2e8f0] mb-4">E-readers</h4>
-          <div class="w-full rounded-lg mb-4 overflow-hidden border border-[#334155]">
-            <img src="assets/ereaders-static.png" alt="E-readers"
-              class="w-full h-48 object-cover" />
+        <a href="http://localhost/library-system/index.php" target="_blank" class="block">
+          <div class="project-card bg-[#1e293b] p-4 sm:p-6 rounded-lg border border-[#334155] h-full" data-aos="flip-left" data-aos-delay="200">
+            <h4 class="text-lg sm:text-xl font-bold text-[#e2e8f0] mb-4">E-readers</h4>
+            <div class="w-full rounded-lg mb-4 overflow-hidden border border-[#334155]">
+              <img src="assets/ereaders-static.png" alt="E-readers"
+                class="w-full h-32 sm:h-48 object-cover" />
+            </div>
+            <p class="text-[#94a3b8] mb-4 leading-relaxed text-sm sm:text-base">
+              Developed a library management system using PHP, MySQL, Tailwind CSS, and JavaScript. Supports book tracking, borrowing logs, and user account features. Built for academic use with attention to scalability and ease of use.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">PHP</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">HTML</span>
+              <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-2 sm:px-3 py-1">TailwindCSS</span>
+            </div>
           </div>
-          <p class="text-[#94a3b8] mb-4 leading-relaxed">
-            Developed a library management system using PHP, MySQL, Tailwind CSS, and JavaScript. Supports book tracking, borrowing logs, and user account features. Built for academic use with attention to scalability and ease of use..
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">PHP</span>
-            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">HTML</span>
-            <span class="bg-[#1e3a8a] text-[#93c5fd] text-xs font-semibold rounded-full px-3 py-1">TailwindCSS</span>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -463,17 +536,6 @@
         }
       });
     });
-
-    window.addEventListener('load', () => {
-      window.scrollTo(0, 0);
-    });
-
-    window.addEventListener('pageshow', (event) => {
-      if (event.persisted) {
-        window.scrollTo(0, 0);
-      }
-    });
-    
   </script>
 </body>
 </html>
