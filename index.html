@@ -1,5 +1,5 @@
 <html lang="en" class="transition-colors duration-300">
-  <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jose Angelo Fernandez | Portfolio</title>
@@ -46,6 +46,13 @@
       font-family: 'Inter', sans-serif;
       position: relative;
       overflow-x: hidden;
+      padding-top: 64px; /* This matches the h-16 class (4rem = 64px) */
+    }
+    
+    @media (min-width: 768px) {
+      body {
+        padding-top: 80px; /* This matches the h-20 class (5rem = 80px) */
+      }
     }
     
     .light-effect {
@@ -200,50 +207,84 @@
   <div class="light-effect"></div>
   
   <!-- Header -->
-  <header class="content-wrapper bg-[#0f172a]/90 backdrop-blur-sm border-b border-[#1e293b] sticky top-0 z-50">
-    <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
-      <h1 class="text-lg sm:text-xl font-bold text-[#e2e8f0] truncate">JOSE ANGELO FERNANDEZ</h1>
-      
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-6 items-center">
-        <a href="#about" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">About</a>
-        <a href="#experience" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Experience</a>
-        <a href="#projects" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Projects</a>
-        <a href="#contact" class="nav-link text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300">Contact</a>
-        <a href="Jose-Angelo-Fernandez-Resume.pdf" download class="bg-[#3b82f6] text-white px-4 py-2 rounded-lg hover:bg-[#2563eb] transition-all duration-300">Resume</a>
-      </nav>
-      
-      <!-- Mobile Menu Button -->
-      <button id="mobileMenuBtn" class="md:hidden text-[#cbd5e1] p-2 rounded-lg hover:bg-[#1e293b] transition-all duration-300 touch-button">
-        <i data-feather="menu" class="w-6 h-6"></i>
-      </button>
+  <header class="fixed w-full top-0 z-50 bg-[#0f172a] border-b border-[#1e293b]">
+    <!-- Desktop & Mobile Container -->
+    <div class="max-w-6xl mx-auto px-4">
+      <!-- Mobile Header -->
+      <div class="flex md:hidden items-center justify-between h-16">
+        <h1 class="text-lg font-bold text-[#e2e8f0] truncate">JOSE ANGELO F.</h1>
+        <button 
+          id="mobileMenuBtn" 
+          type="button" 
+          class="p-2 text-[#cbd5e1] hover:bg-[#1e293b] rounded-lg transition-colors"
+          aria-label="Menu">
+          <i data-feather="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Desktop Header -->
+      <div class="hidden md:flex items-center justify-between h-20">
+        <h1 class="text-xl font-bold text-[#e2e8f0]">JOSE ANGELO FERNANDEZ</h1>
+        <nav class="flex items-center space-x-8">
+          <a href="#about" class="text-[#94a3b8] hover:text-white transition-colors">About</a>
+          <a href="#experience" class="text-[#94a3b8] hover:text-white transition-colors">Experience</a>
+          <a href="#projects" class="text-[#94a3b8] hover:text-white transition-colors">Projects</a>
+          <a href="#contact" class="text-[#94a3b8] hover:text-white transition-colors">Contact</a>
+          <a href="Jose-Angelo-Fernandez-Resume.pdf" download class="bg-[#3b82f6] text-white px-4 py-2 rounded-lg hover:bg-[#2563eb] transition-colors">
+            Resume
+          </a>
+        </nav>
+      </div>
     </div>
-    
-    <!-- Mobile Navigation Menu -->
-    <div id="mobileNav" class="mobile-nav fixed inset-0 bg-[#0f172a]/95 backdrop-blur-sm md:hidden -translate-y-full transition-transform duration-300 ease-in-out z-50">
+
+    <!-- Mobile Menu Overlay -->
+    <div 
+      id="mobileNav"
+      class="fixed inset-0 bg-[#0f172a] -translate-y-full transition-transform duration-300 md:hidden">
       <div class="h-full flex flex-col">
-        <div class="flex justify-between items-center px-4 py-3 border-b border-[#334155]">
+        <!-- Mobile Menu Header -->
+        <div class="flex items-center justify-between p-4 border-b border-[#1e293b]">
           <h1 class="text-lg font-bold text-[#e2e8f0]">JOSE ANGELO FERNANDEZ</h1>
-          <button id="mobileMenuCloseBtn" class="text-[#cbd5e1] p-2 rounded-lg hover:bg-[#1e293b] transition-all duration-300 touch-button">
+          <button 
+            id="mobileMenuCloseBtn" 
+            type="button"
+            class="p-2 text-[#cbd5e1] hover:bg-[#1e293b] rounded-lg transition-colors"
+            aria-label="Close menu">
             <i data-feather="x" class="w-6 h-6"></i>
           </button>
         </div>
-        <nav class="flex-1 px-4 py-6 space-y-4 overflow-y-auto">
-          <a href="#about" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300 py-3 px-2 rounded-lg hover:bg-[#1e293b] touch-button">About</a>
-          <a href="#experience" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300 py-3 px-2 rounded-lg hover:bg-[#1e293b] touch-button">Experience</a>
-          <a href="#projects" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300 py-3 px-2 rounded-lg hover:bg-[#1e293b] touch-button">Projects</a>
-          <a href="#contact" class="block nav-link text-lg text-[#94a3b8] hover:text-[#cbd5e1] transition-all duration-300 py-3 px-2 rounded-lg hover:bg-[#1e293b] touch-button">Contact</a>
-          <a href="Jose-Angelo-Fernandez-Resume.pdf" download class="inline-block w-full bg-[#3b82f6] text-white px-4 py-3 rounded-lg hover:bg-[#2563eb] transition-all duration-300 text-center mt-4 touch-button">Resume</a>
+        <!-- Mobile Menu Links -->
+        <nav class="flex-1 px-4 py-8">
+          <div class="flex flex-col space-y-4">
+            <a href="#about" class="text-lg text-[#94a3b8] hover:text-white p-2 rounded-lg hover:bg-[#1e293b] transition-colors">
+              About
+            </a>
+            <a href="#experience" class="text-lg text-[#94a3b8] hover:text-white p-2 rounded-lg hover:bg-[#1e293b] transition-colors">
+              Experience
+            </a>
+            <a href="#projects" class="text-lg text-[#94a3b8] hover:text-white p-2 rounded-lg hover:bg-[#1e293b] transition-colors">
+              Projects
+            </a>
+            <a href="#contact" class="text-lg text-[#94a3b8] hover:text-white p-2 rounded-lg hover:bg-[#1e293b] transition-colors">
+              Contact
+            </a>
+            <a href="Jose-Angelo-Fernandez-Resume.pdf" download class="mt-4 bg-[#3b82f6] text-white p-3 rounded-lg text-center hover:bg-[#2563eb] transition-colors">
+              Resume
+            </a>
+          </div>
         </nav>
       </div>
     </div>
   </header>
 
+  <!-- Spacer div -->
+  <div class="h-16 md:h-20"></div>
+
   <!-- Hero Section -->
   <section class="content-wrapper bg-transparent text-center py-12 px-4 sm:py-20 sm:px-6" data-aos="fade-up">
     <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 max-w-6xl mx-auto">
       <img src="assets/my-photo.jpg" alt="Jose Angelo Fernandez"
-        class="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-[#3b82f6] shadow-2xl transform transition-transform duration-500 hover:scale-110 hover:rotate-3" />
+        class="w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 rounded-full object-cover border-4 border-[#3b82f6] shadow-2xl transform transition-transform duration-500 hover:scale-110 hover:rotate-3" />
       <div class="md:text-left text-center">
         <div class="inline-block mb-4">
           <div class="relative inline-block">
@@ -262,19 +303,18 @@
         <p class="text-[#94a3b8] mb-4 max-w-2xl text-sm sm:text-base leading-relaxed">
           Entry-level knowledge in web development and technical support, with a strong willingness to explore new roles and learn.
         </p>
-        <div class="text-[#94a3b8] mb-6 text-sm sm:text-base">
-          <div class="flex flex-col sm:items-start items-center space-y-1">
-            <p class="break-all">joseangelof123@gmail.com</p>
-            <p>0916-862-1591</p>
-            <p>San Miguel, Bulacan, Central Luzon</p>
-          </div>
-          <div class="mt-2 flex justify-center sm:justify-start">
-            <a href="https://www.linkedin.com/in/jose-angelo-fernandez/" target="_blank"
-               class="text-[#64748b] hover:text-[#3b82f6] transition-all duration-300 p-2">
-              <i class="fab fa-linkedin fa-2x"></i>
-            </a>
-          </div>
+        <div class="text-[#94a3b8] mb-6 space-y-1 text-sm sm:text-base">
+          <p class="break-all">joseangelof123@gmail.com</p>
+          <p>0916-862-1591</p>
+          <p>San Miguel, Bulacan, Central Luzon</p>
         </div>
+        <div class="flex justify-center md:justify-start space-x-4">
+          <a href="https://www.linkedin.com/in/jose-angelo-fernandez/" target="_blank" class="social-link text-[#64748b] hover:text-[#3b82f6] transition-all duration-300 p-2 touch-button">
+            <i class="fab fa-linkedin fa-2x"></i>
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- About Section -->
@@ -498,26 +538,16 @@
     const mobileNav = document.getElementById('mobileNav');
 
     function toggleMobileMenu(show) {
-      mobileNav.classList.toggle('active', show);
-      document.body.classList.toggle('menu-open', show);
+      mobileNav.style.transform = show ? 'translateY(0)' : 'translateY(-100%)';
+      document.body.style.overflow = show ? 'hidden' : '';
     }
 
     mobileMenuBtn.addEventListener('click', () => toggleMobileMenu(true));
     mobileMenuCloseBtn.addEventListener('click', () => toggleMobileMenu(false));
 
-    // Close mobile menu when clicking on links
-    const mobileNavLinks = mobileNav.querySelectorAll('a');
-    mobileNavLinks.forEach(link => {
+    // Close menu when clicking links
+    mobileNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => toggleMobileMenu(false));
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (mobileNav.classList.contains('active') && 
-          !mobileNav.contains(e.target) && 
-          !mobileMenuBtn.contains(e.target)) {
-        toggleMobileMenu(false);
-      }
     });
 
     // Smooth scroll for navigation links
